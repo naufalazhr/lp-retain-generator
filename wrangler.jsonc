@@ -1,0 +1,11 @@
+{
+  // Cloudflare Pages configuration for LP Retain Generator
+  "name": "lp-retain-generator",
+  "compatibility_date": "2025-05-15",
+  "compatibility_flags": ["nodejs_compat"],
+  "main": ".open-next/worker.js",
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  }
+}
