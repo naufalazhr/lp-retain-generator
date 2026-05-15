@@ -230,7 +230,7 @@ export async function copyIframeToClipboard(iframe: HTMLIFrameElement): Promise<
 
 export async function downloadIframeAsImage(
   iframe: HTMLIFrameElement,
-  basename = "html-anything",
+  basename = "lp-retain",
 ): Promise<void> {
   const blob = await iframeToBlob(iframe);
   downloadBlob(blob, `${basename}-${Date.now()}.png`);

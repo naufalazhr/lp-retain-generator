@@ -4,7 +4,7 @@ import path from "node:path";
 
 /**
  * Per-provider config file storage. Tokens live as plaintext in
- * `~/.html-anything/<provider>.json` (chmod 600). When the API surfaces them
+ * `~/.lp-retain/<provider>.json` (chmod 600). When the API surfaces them
  * back to the client we substitute a fixed mask string so the real token
  * never leaves the server. The client sends the mask back unchanged when it
  * wants the existing value preserved during a partial update.
@@ -66,11 +66,11 @@ export class DeployError extends Error {
 }
 
 export function deployConfigPath(providerId: DeployProviderId): string {
-  // `HTML_ANYTHING_USER_STATE_DIR` lets tests / sandboxed environments
-  // redirect storage. Otherwise fall back to `~/.html-anything/`.
+  // `LP_RETAIN_USER_STATE_DIR` lets tests / sandboxed environments
+  // redirect storage. Otherwise fall back to `~/.lp-retain/`.
   const base =
-    process.env.HTML_ANYTHING_USER_STATE_DIR ||
-    path.join(homedir(), ".html-anything");
+    process.env.LP_RETAIN_USER_STATE_DIR ||
+    path.join(homedir(), ".lp-retain");
   const file =
     providerId === CLOUDFLARE_PAGES_PROVIDER_ID
       ? "cloudflare-pages.json"

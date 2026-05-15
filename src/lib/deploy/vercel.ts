@@ -137,7 +137,7 @@ function safeProjectLabel(raw: string, maxLength: number): string {
 
 export function safeVercelProjectName(raw: string): string {
   return (
-    safeProjectLabel(raw, 80) || `html-anything-${randomUUID().slice(0, 8)}`
+    safeProjectLabel(raw, 80) || `lp-retain-${randomUUID().slice(0, 8)}`
   );
 }
 
@@ -166,7 +166,7 @@ export async function deployToVercel({
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        name: safeVercelProjectName(`html-anything-${taskId}`),
+        name: safeVercelProjectName(`lp-retain-${taskId}`),
         files: files.map((f) => ({
           file: f.file,
           data: Buffer.from(f.data).toString("base64"),

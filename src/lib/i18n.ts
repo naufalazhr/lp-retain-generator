@@ -357,7 +357,7 @@ const en: Dict = {
   "welcome.titlePart1": "Pick a local",
   "welcome.titleAccent": "code agent",
   "welcome.description":
-    "HTML Anything reuses your already-logged-in CLI session — no API key required. You can switch agents anytime from the top bar.",
+    "LP Retain reuses your already-logged-in CLI session — no API key required. You can switch agents anytime from the top bar.",
   "welcome.rescan": "↻ Rescan",
   "welcome.scanning": "Scanning…",
   "welcome.rescanTitle": "Run detection again",
@@ -398,7 +398,7 @@ const en: Dict = {
 
   "settings.eyebrow": "Settings",
   "settings.titlePart1": "Configure",
-  "settings.titleAccent": "HTML Anything",
+  "settings.titleAccent": "LP Retain",
   "settings.close": "Close (Esc)",
   "settings.done": "Done",
   "settings.section.agent.label": "Agent",
@@ -407,7 +407,7 @@ const en: Dict = {
   "settings.section.language.hint": "Interface language",
   "settings.agent.title": "Code agent",
   "settings.agent.subtitle":
-    "HTML Anything reuses your already-logged-in CLI session — no API key required.",
+    "LP Retain reuses your already-logged-in CLI session — no API key required.",
   "settings.language.title": "Interface language",
   "settings.language.subtitle":
     "Sets the language the app surface uses. Default is English; your choice is saved locally.",
@@ -419,7 +419,7 @@ const en: Dict = {
   "settings.section.deploy.hint": "One-click publishing",
   "settings.deploy.title": "One-click deploy",
   "settings.deploy.subtitle":
-    "Publish the generated HTML to a public URL with one click. Tokens stay on your machine in ~/.html-anything (chmod 600).",
+    "Publish the generated HTML to a public URL with one click. Tokens stay on your machine in ~/.lp-retain (chmod 600).",
   "settings.deploy.vercel.title": "Vercel",
   "settings.deploy.vercel.tokenLabel": "API token",
   "settings.deploy.vercel.tokenPlaceholder": "vercel_xxx…",
@@ -670,7 +670,7 @@ const zhCN: Dict = {
   "welcome.titlePart1": "选一个本地",
   "welcome.titleAccent": "code agent",
   "welcome.description":
-    "HTML Anything 复用你已经登录的 CLI session — 不要求你再贴一遍 API Key。进入主界面后,你随时可以在顶栏切换到别的 agent。",
+    "LP Retain 复用你已经登录的 CLI session — 不要求你再贴一遍 API Key。进入主界面后,你随时可以在顶栏切换到别的 agent。",
   "welcome.rescan": "↻ 重新检测",
   "welcome.scanning": "扫描中…",
   "welcome.rescanTitle": "重新检测",
@@ -710,7 +710,7 @@ const zhCN: Dict = {
 
   "settings.eyebrow": "设置",
   "settings.titlePart1": "配置",
-  "settings.titleAccent": "HTML Anything",
+  "settings.titleAccent": "LP Retain",
   "settings.close": "关闭 (Esc)",
   "settings.done": "完成",
   "settings.section.agent.label": "Agent",
@@ -719,7 +719,7 @@ const zhCN: Dict = {
   "settings.section.language.hint": "界面语言",
   "settings.agent.title": "Code agent",
   "settings.agent.subtitle":
-    "HTML Anything 复用你已经登录的 CLI session — 不需要再贴 API Key。",
+    "LP Retain 复用你已经登录的 CLI session — 不需要再贴 API Key。",
   "settings.language.title": "界面语言",
   "settings.language.subtitle":
     "选择 app 界面使用的语言。默认 English; 选择会保存到本地。",
@@ -731,7 +731,7 @@ const zhCN: Dict = {
   "settings.section.deploy.hint": "一键发布",
   "settings.deploy.title": "一键部署",
   "settings.deploy.subtitle":
-    "把生成好的 HTML 一键发布成公网链接。Token 仅本地保存于 ~/.html-anything（chmod 600）。",
+    "把生成好的 HTML 一键发布成公网链接。Token 仅本地保存于 ~/.lp-retain（chmod 600）。",
   "settings.deploy.vercel.title": "Vercel",
   "settings.deploy.vercel.tokenLabel": "API Token",
   "settings.deploy.vercel.tokenPlaceholder": "vercel_xxx…",
