@@ -1,6 +1,7 @@
 import { existsSync } from "node:fs";
 import { homedir } from "node:os";
 import path, { delimiter, join } from "node:path";
+import { API_AGENTS } from "./invoke-api";
 
 /**
  * Per-agent invocation protocol. Determines what `invokeAgent` does with the
@@ -16,7 +17,7 @@ import path, { delimiter, join } from "node:path";
  *                      clear error pointing them to a supported agent.
  *   - "pi-rpc"       : pi's custom JSON-RPC mode. Same status as "acp".
  */
-export type AgentProtocol = "stdin" | "argv" | "argv-message" | "acp" | "pi-rpc";
+export type AgentProtocol = "stdin" | "argv" | "argv-message" | "acp" | "pi-rpc" | "api";
 
 export type ModelOption = { id: string; label: string };
 
@@ -203,6 +204,20 @@ export const AGENTS: AgentDef[] = [
       { id: "claude-sonnet-4-5", label: "claude-sonnet-4-5" },
       { id: "gpt-5", label: "gpt-5" },
       { id: "deepseek/deepseek-chat", label: "deepseek/deepseek-chat" },
+    ],
+  },
+
+  // API-based agents — invoked via direct HTTP instead of spawning a local CLI.
+  {
+    id: "byteplus",
+    label: "BytePlus Ark",
+    bin: "byteplus",
+    envOverride: "BYTEPLUS_BIN",
+    vendor: "BytePlus (Seed 2.0 Pro)",
+    protocol: "api",
+    fallbackModels: [
+      DEFAULT_MODEL,
+      { id: "seed-2-0-pro-260328", label: "Seed 2.0 Pro" },
     ],
   },
 
@@ -436,6 +451,12 @@ export function detectAgents(): DetectedAgent[] {
       models: a.fallbackModels,
       unsupported: unsupported || undefined,
     };
+    if (protocol === "api") {
+      const cfg = API_AGENTS[a.id];
+      const key =
+        cfg ? (process.env[cfg.apiKeyEnv] ?? "").trim() : "";
+      return { ...base, available: !!key };
+    }
     const override = a.envOverride ? process.env[a.envOverride] : undefined;
     if (override && existsSync(override)) {
       return { ...base, available: true, path: override, resolvedBin: a.bin };

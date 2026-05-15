@@ -2,6 +2,7 @@ import { spawn, type ChildProcessWithoutNullStreams } from "node:child_process";
 import { existsSync } from "node:fs";
 import { resolveOnPath, resolveOpenclawAgentId, AGENTS } from "./detect";
 import { buildArgv, envFor, makeParser, UnsupportedAgentProtocolError } from "./argv";
+import { invokeApiAgent } from "./invoke-api";
 
 export type InvokeOpts = {
   agent: string;
@@ -82,6 +83,14 @@ export function invokeAgent(opts: InvokeOpts): ReadableStream<InvokeEvent> {
   const def = AGENTS.find((a) => a.id === opts.agent);
   if (!def) {
     return errorStream(`unknown agent: ${opts.agent}`);
+  }
+  if (def.protocol === "api") {
+    return invokeApiAgent({
+      agent: opts.agent,
+      prompt: opts.prompt,
+      model: opts.model,
+      signal: opts.signal,
+    });
   }
   const resolved = resolveBinForAgent(def, opts.binOverride);
   if (resolved.kind === "override-missing") {
